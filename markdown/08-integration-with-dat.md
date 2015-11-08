@@ -1,4 +1,6 @@
-# Welcome!
+# Integration with Dat (WIP section)
+
+Also check [try-dat.com](http://try-dat.com)
 
 This takes `eukaryota` data and run a gene sequence alignment on the data.
 
