@@ -1,12 +1,5 @@
 # bionode-fasta
 > Streamable FASTA parser.
->
-> doi: [?](?)
-> author: [Bruno Vieira](http://bmpvieira.com)
-> email: <mail@bmpvieira.com>
-> license: [MIT](https://raw.githubusercontent.com/bionode/bionode-fasta/master/LICENSE)
-
----
 
 ## Usage
 This module can be used in Node.js as described further below, or as a command line tool.
