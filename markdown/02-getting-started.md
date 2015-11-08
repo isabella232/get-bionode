@@ -28,6 +28,8 @@ npm install bionode-ncbi -g
 npm install dat json -g
 ```
 
+## Quci
+
 ## Available modules
 After you're setup you can have a quick look at the available [modules on GitHub](https://github.com/bionode/bionode#list-of-modules) and jump to the section about that module, or keep reading
 
@@ -108,3 +110,8 @@ for id in esearch_record['IdList']:
   for entry in Metadata[1]:
     print entry.text
 ```
+
+### More Node.js tips
+
+If you git clone a Node.js folder, to install it's dependencies you just cd into it and type `npm install`.
+If you want to install that module that you just git cloned as a command tool, you cd into the folder and do `npm link` (useful for development).
