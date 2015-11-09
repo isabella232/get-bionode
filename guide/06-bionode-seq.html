@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+  <title>Submarine</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+</head>
+<body>
+  <div class="wrapper">
+
+      <section class="content">
+        <p><a href="index.html">table of contents</a></p>
+      <h1 id="bionode-seq">Bionode-seq</h1>
+<p>A module for DNA, RNA and protein sequences manipulation.</p>
+<h2 id="install-and-load">Install and load</h2>
+<p>This is a very simple module and doesn&#39;t have a command line interface yet as it&#39;s mostly used in the browser.
+You can load and install it like this:</p>
+<pre><code class="lang-bash">npm install bionode-seq
+</code></pre>
+<pre><code class="lang-javascript">var seq = require(&#39;bionode-seq&#39;)
+</code></pre>
+<h3 id="usage">Usage</h3>
+<h3 id="check-sequence-type">Check sequence type</h3>
+<p>Takes a sequence string and checks if it&#39;s DNA, RNA or protein (returns &#39;dna&#39;, &#39;rna&#39;, &#39;protein&#39; or undefined). Other optional arguments include threshold, length and index (see below).</p>
+<pre><code class="lang-javascript"> seq.checkType(&quot;ATGACCCTGAGAAGAGCACCG&quot;);
+ //=&gt; &quot;dna&quot;
+ seq.checkType(&quot;AUGACCCUGAAGGUGAAUGAA&quot;);
+ //=&gt; &quot;rna&quot;
+ seq.checkType(&quot;MAYKSGKRPTFFEVFKAHCSDS&quot;);
+ //=&gt; &quot;protein&quot;
+ seq.checkType(&quot;1234567891234567ATGACC&quot;);
+ //=&gt; undefined
+</code></pre>
+<p>By default, the method has a 90% threshold, however, this can be altered as required.</p>
+<pre><code class="lang-javascript">seq.checkType(&quot;1234567891234567ATGACC&quot;, 0.8);
+=&gt; undefined
+seq.checkType(&quot;--------MAYKSGKRPTFFEV&quot;, 0.7);
+=&gt; &quot;protein&quot;
+</code></pre>
+<p>The length value specifies the length of the sequence to be analyse (default 10000). If your sequence is extremely long, you may want to analyse a shorter sub-section to reduce the computational burden.</p>
+<pre><code class="lang-javascript">seq.checkType(&#39;A Very Long Sequence&#39;, 0.9, 1000);
+=&gt; Type based on the first 1000 characters
+</code></pre>
+<p>The index value specifies the point on the sequence from which the sequence is to be analysed. Perhaps you know that there are lot of gaps at the start of the sequence.</p>
+<pre><code class="lang-javascript">seq.checkType(&quot;--------MAYKSGKRPTFFEV&quot;, 0.9, 10000, 8);
+=&gt; &quot;protein&quot;
+</code></pre>
+<p>Takes a sequence type argument and returns a function to complement bases.</p>
+<h3 id="reverse-sequence">Reverse sequence</h3>
+<p>Takes sequence string and returns the reverse sequence.</p>
+<pre><code class="lang-javascript">seq.reverse(&quot;ATGACCCTGAAGGTGAA&quot;);
+=&gt; &quot;AAGTGGAAGTCCCAGTA&quot;
+</code></pre>
+<h3 id="-reverse-complement-sequence">(Reverse) complement sequence</h3>
+<p>Takes a sequence string and optional boolean for reverse, and returns its complement.</p>
+<pre><code class="lang-javascript">seq.complement(&quot;ATGACCCTGAAGGTGAA&quot;);
+=&gt; &quot;TACTGGGACTTCCACTT&quot;
+seq.complement(&quot;ATGACCCTGAAGGTGAA&quot;, true);
+=&gt; &quot;TTCACCTTCAGGGTCAT&quot;
+Alias
+seq.reverseComplement(&quot;ATGACCCTGAAGGTGAA&quot;);
+=&gt; &quot;TTCACCTTCAGGGTCAT&quot;
+</code></pre>
+<p>Takes a sequence string and returns the reverse complement (syntax sugar).</p>
+<h3 id="transcribe-base">Transcribe base</h3>
+<p>Takes a base character and returns the transcript base.</p>
+<pre><code class="lang-javascript">seq.getTranscribedBase(&quot;A&quot;);
+=&gt; &quot;U&quot;
+seq.getTranscribedBase(&quot;T&quot;);
+=&gt; &quot;A&quot;
+seq.getTranscribedBase(&quot;t&quot;);
+=&gt; &quot;a&quot;
+seq.getTranscribedBase(&quot;C&quot;);
+=&gt; &quot;G&quot;
+</code></pre>
+<h3 id="get-codon-amino-acid">Get codon amino acid</h3>
+<p>Takes an RNA codon and returns the translated amino acid.</p>
+<pre><code class="lang-javascript">seq.getTranslatedAA(&quot;AUG&quot;);
+=&gt; &quot;M&quot;
+seq.getTranslatedAA(&quot;GCU&quot;);
+=&gt; &quot;A&quot;
+seq.getTranslatedAA(&quot;CUU&quot;);
+=&gt; &quot;L&quot;
+</code></pre>
+<h3 id="remove-introns">Remove introns</h3>
+<p>Take a sequence and an array of exonsRanges and removes them.</p>
+<pre><code class="lang-javascript">seq.removeIntrons(&quot;ATGACCCTGAAGGTGAATGACAG&quot;, [[1, 8]]);
+=&gt; &quot;TGACCCT&quot;
+seq.removeIntrons(&quot;ATGACCCTGAAGGTGAATGACAG&quot;, [[2, 9], [12, 20]]);
+=&gt; &quot;GACCCTGGTGAATGA&quot;
+</code></pre>
+<h3 id="transcribe-sequence">Transcribe sequence</h3>
+<p>Takes a sequence string and returns the transcribed sequence (dna &lt;-&gt; rna).
+If an array of exons is given, the introns will be removed from the sequence.</p>
+<pre><code class="lang-javascript">seq.transcribe(&quot;ATGACCCTGAAGGTGAA&quot;);
+=&gt; &quot;AUGACCCUGAAGGUGAA&quot;
+seq.transcribe(&quot;AUGACCCUGAAGGUGAA&quot;); reverse
+=&gt; &quot;ATGACCCTGAAGGTGAA&quot;
+</code></pre>
+<h3 id="translate-sequence">Translate sequence</h3>
+<p>Takes a DNA or RNA sequence and translates it to protein
+If an array of exons is given, the introns will be removed from the sequence.</p>
+<pre><code class="lang-javascript">seq.translate(&quot;ATGACCCTGAAGGTGAATGACAGGAAGCCCAAC&quot;); dna
+=&gt; &quot;MTLKVNDRKPN&quot;
+seq.translate(&quot;AUGACCCUGAAGGUGAAUGACAGGAAGCCCAAC&quot;); rna
+=&gt; &quot;MTLKVNDRKPN&quot;
+seq.translate(&quot;ATGACCCTGAAGGTGAATGACAGGAAGCC&quot;, [[3, 21]]);
+=&gt; &quot;LKVND&quot;
+</code></pre>
+<h3 id="reverse-exons">Reverse exons</h3>
+<p>Takes an array of exons and the length of the reference and returns inverted coordinates.</p>
+<pre><code class="lang-javascript">seq.reverseExons([[2,8]], 20);
+=&gt; [ [ 12, 18 ] ]
+seq.reverseExons([[10,45], [65,105]], 180);
+=&gt; [ [ 135, 170 ], [ 75, 115 ] ]
+</code></pre>
+<h3 id="find-non-canonical-splice-sites">Find non-canonical splice sites</h3>
+<p>Takes a sequence and exons ranges and returns an array of non canonical splice sites.</p>
+<pre><code class="lang-javascript">seq.findNonCanonicalSplices(&quot;GGCGGCGGCGGTGAGGTGGACCTGCGCGAATACGTGGTCGCCCTGT&quot;, [[0, 10], [20, 30]]);
+=&gt; [ 20 ]
+seq.findNonCanonicalSplices(&quot;GGCGGCGGCGGTGAGGTGAGCCTGCGCGAATACGTGGTCGCCCTGT&quot;, [[0, 10], [20, 30]]);
+=&gt; []
+</code></pre>
+<h3 id="check-canonical-translation-start-site">Check canonical translation start site</h3>
+<p>Takes a sequence and returns boolean for canonical translation start site.</p>
+<pre><code class="lang-javascript">seq.checkCanonicalTranslationStartSite(&quot;ATGACCCTGAAGGT&quot;);
+=&gt; true
+seq.checkCanonicalTranslationStartSite(&quot;AATGACCCTGAAGGT&quot;);
+=&gt; false
+</code></pre>
+<h3 id="get-reading-frames">Get reading frames</h3>
+<p>Takes a sequence and returns an array with the six possible Reading Frames (+1, +2, +3, -1, -2, -3).</p>
+<pre><code class="lang-javascript">seq.getReadingFrames(&quot;ATGACCCTGAAGGTGAATGACAGGAAGCCCAAC&quot;);
+=&gt; [ &#39;ATGACCCTGAAGGTGAATGACAGGAAGCCCAAC&#39;,
+&#39;TGACCCTGAAGGTGAATGACAGGAAGCCCAAC&#39;,
+&#39;GACCCTGAAGGTGAATGACAGGAAGCCCAAC&#39;,
+&#39;GTTGGGCTTCCTGTCATTCACCTTCAGGGTCAT&#39;,
+&#39;TTGGGCTTCCTGTCATTCACCTTCAGGGTCAT&#39;,
+&#39;TGGGCTTCCTGTCATTCACCTTCAGGGTCAT&#39; ]
+</code></pre>
+<h3 id="get-open-reading-frames">Get open reading frames</h3>
+<p>Takes a Reading Frame sequence and returns an array of Open Reading Frames.</p>
+<pre><code class="lang-javascript">seq.getOpenReadingFrames(&quot;ATGACCCTGAAGGTGAATGACAGGAAGCCCAAC&quot;);
+=&gt; [ &#39;ATGACCCTGAAGGTGAATGACAGGAAGCCCAAC&#39; ]
+seq.getOpenReadingFrames(&quot;AUGACCCUGAAGGUGAAUGACAGGAAGCCCAAC&quot;);
+=&gt; [ &#39;AUGACCCUGAAGGUGAAUGACAGGAAGCCCAAC&#39; ]
+seq.getOpenReadingFrames(&quot;ATGAGAAGCCCAACATGAGGACTGA&quot;);
+=&gt; [ &#39;ATGAGAAGCCCAACATGA&#39;, &#39;GGACTGA&#39; ]
+</code></pre>
+<h3 id="get-all-open-reading-frames">Get all open reading frames</h3>
+<p>Takes a sequence and returns all Open Reading Frames in the six Reading Frames.</p>
+<pre><code class="lang-javascript">seq.getAllOpenReadingFrames(&quot;ATGACCCTGAAGGTGAATGACA&quot;);
+     =&gt; [ [ &#39;ATGACCCTGAAGGTGAATGACA&#39; ],
+     [ &#39;TGA&#39;, &#39;CCCTGA&#39;, &#39;AGGTGA&#39;, &#39;ATGACA&#39; ],
+     [ &#39;GACCCTGAAGGTGAATGA&#39;, &#39;CA&#39; ],
+     [ &#39;TGTCATTCACCTTCAGGGTCAT&#39; ],
+     [ &#39;GTCATTCACCTTCAGGGTCAT&#39; ],
+     [ &#39;TCATTCACCTTCAGGGTCAT&#39; ] ]
+</code></pre>
+<h3 id="find-longest-open-reading-frame">Find longest open reading frame</h3>
+<p>Takes a sequence and returns the longest ORF from all six reading frames and
+corresponding frame symbol (+1, +2, +3, -1, -2, -3). If a frame symbol is specified,
+only look for longest ORF on that frame.
+When sorting ORFs, if there&#39;s a tie, choose the one that starts with start codon Methionine.
+If there&#39;s still a tie, return one randomly.</p>
+<pre><code class="lang-javascript">     seq.findLongestOpenReadingFrame(&quot;ATGACCCTGAAGGTGAATGACA&quot;);
+     =&gt; [ &#39;ATGACCCTGAAGGTGAATGACA&#39;, &#39;+1&#39; ]
+seq.findLongestOpenReadingFrame(&quot;ATGACCCTGAAGGTGAATGACA&quot;, &quot;-1&quot;);
+=&gt; &quot;TGTCATTCACCTTCAGGGTCAT&quot;
+</code></pre>
+
+        <div class="navlinks">
+          <a class="nextp button" href="07-write-once-run-anywhere.html">OK, next! &raquo;</a>
+            <a class="lastp navlink" href="05-bionode-pipelines.html">&laquo; back</a>
+        </div>
+    </section>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+</body>
+</html>

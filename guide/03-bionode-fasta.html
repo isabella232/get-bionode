@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <title>Submarine</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+</head>
+<body>
+  <div class="wrapper">
+
+      <section class="content">
+        <p><a href="index.html">table of contents</a></p>
+      <h1 id="bionode-fasta">bionode-fasta</h1>
+<blockquote>
+<p>Streamable FASTA parser.</p>
+</blockquote>
+<h2 id="usage">Usage</h2>
+<p>This module can be used in Node.js as described further below, or as a command line tool.
+Examples:</p>
+<pre><code>$ npm install -g bionode-fasta
+
+# bionode-fasta [options] [input file] [output file]
+$ bionode-fasta input.fasta.gz output.json
+
+# You can also use fasta files compressed with gzip
+# If no output is provided, the result will be printed to stdout
+# Options: -p, --path: Includes the path of the original file as a property of the output objects
+</code></pre><h2 id="fasta">Fasta</h2>
+<p>Returns a Writable Stream that parses a FASTA content Buffer into a JSON Buffer</p>
+<pre><code>var fasta = require(&#39;bionode-fasta&#39;)
+
+fs.createReadStream(&#39;./input.fasta&#39;)
+.pipe(fasta())
+.pipe(process.stdout)
+
+=&gt; { &quot;id&quot;: &quot;contig1&quot;,
+     &quot;seq&quot;: &quot;AGTCATGACTGACGTACGCATG&quot; }
+=&gt; { &quot;id&quot;: &quot;contig2&quot;,
+     &quot;seq&quot;: &quot;ATGTACGTACTGCATGC&quot; }
+=&gt; [...]
+</code></pre><p>Can also parse content from filenames Strings streamed to it</p>
+<pre><code>fs.createReadStream(&#39;./fasta-list.txt&#39;)
+.pipe(split())
+.pipe(fasta({filenameMode: true}))
+.pipe(process.stdout)
+</code></pre><p>When filenames are Streamed like in the previous example, or passed directly
+to the parser Stream, they can be added to the output Objects</p>
+<pre><code>fasta({includePath: true}, &#39;./input.fasta&#39;)
+.pipe(process.stdout)
+
+=&gt; { &quot;id&quot;: &quot;contig1&quot;,
+     &quot;seq&quot;: &quot;AGTCATGACTGACGTACGCATG&quot; }
+     &quot;path&quot;: &quot;./input.fasta&quot; }
+</code></pre><p>The output from the parser can also be available as Objects instead of Buffers</p>
+<pre><code>fasta({objectMode: true}, &#39;./input.fasta&#39;)
+.on(&#39;data&#39;, console.log)
+</code></pre><p>Shortcut version of previous example</p>
+<pre><code>fasta.obj(&#39;./input.fasta&#39;).on(&#39;data&#39;, console.log)
+</code></pre><p>Callback style can also be used, however they might not be the best for large files</p>
+<pre><code>fasta.obj(&#39;./input.fasta&#39;, function(data) {
+  console.log(data)
+})
+</code></pre>
+        <div class="navlinks">
+          <a class="nextp button" href="04-bionode-ncbi.html">OK, next! &raquo;</a>
+            <a class="lastp navlink" href="02-getting-started.html">&laquo; back</a>
+        </div>
+    </section>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+</body>
+</html>

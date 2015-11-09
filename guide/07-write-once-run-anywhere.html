@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <title>Submarine</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+</head>
+<body>
+  <div class="wrapper">
+
+      <section class="content">
+        <p><a href="index.html">table of contents</a></p>
+      <h1 id="write-once-run-anywhere-wip-section-">Write Once Run Anywhere (WIP section)</h1>
+<p>Node.js is JavaScript, and thus can also run on a browser. However the Node.js API won&#39;t be available and things like filesystem access don&#39;t make sense in the browser, so the workaround is to use the project <a href="http://browserify.org">browserify</a> that makes a Node.js module work in the browser by implementing the Node.js API with browser functions. For example, filesystem works by storing files in the browser leveldb database.</p>
+<p>The module <a href="https://github.com/bionode/bionode-fasta">bionode-fasta</a> is a good example of WORA code. You can look at its test folder to see what&#39;s going to happen and then type <code>npm run test-browser</code> as shown below to see it run those test in a browser.</p>
+<pre><code class="lang-bash">git clone https://github.com/bionode/bionode-fasta
+cd bionode-fasta
+npm install
+npm run test-browser
+</code></pre>
+<p>The result should be this:</p>
+<p><img src="/static/img/client-side.png" alt="client-side"></p>
+
+        <div class="navlinks">
+          <a class="nextp button" href="08-workflow-guis.html">OK, next! &raquo;</a>
+            <a class="lastp navlink" href="06-bionode-seq.html">&laquo; back</a>
+        </div>
+    </section>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+</body>
+</html>

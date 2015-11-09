@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+  <title>Submarine</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+</head>
+<body>
+  <div class="wrapper">
+
+      <section class="content">
+        <p><a href="index.html">table of contents</a></p>
+      <h1 id="bionode-ncbi-wip-section-">Bionode-ncbi (WIP section)</h1>
+<pre><code class="lang-bash">bionode-ncbi search genome spiders
+bionode-ncbi search genome spiders | wc
+bionode-ncbi search genome spiders | head -n 1 | json
+bionode-ncbi search genome spiders | json -ga organism_name
+
+bionode-ncbi search genome spiders | \
+  json -ga uid | \
+  bionode-ncbi link genome pubmed - | \
+  json -ga destUID | \
+  bionode-ncbi search pubmed - | \
+  json -ga title
+
+bionode-ncbi download assembly Guillardia theta | \
+  json -ga -c &#39;this.status === &quot;completed&quot;&#39; | \
+  json -ga path | \
+  bionode-fasta -f | \
+  json -ga -c &#39;this.seq.length &gt; 10000&#39; | \
+  bionode-fasta --write &gt; gtheta-big-scaffolds.fasta
+</code></pre>
+<h1 id="bionode-ncbi">bionode-ncbi</h1>
+<blockquote>
+<p>Node.js module for working with the NCBI API (aka e-utils) using Streams.</p>
+<p>doi: <a href="http://dx.doi.org/10.5281/zenodo.10610">10.5281/zenodo.10610</a>
+author: <a href="http://bmpvieira.com">Bruno Vieira</a>
+email: <a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#109;&#x61;&#x69;&#108;&#x40;&#98;&#109;&#x70;&#118;&#x69;&#101;&#x69;&#x72;&#x61;&#46;&#99;&#111;&#x6d;">&#109;&#x61;&#x69;&#108;&#x40;&#98;&#109;&#x70;&#118;&#x69;&#101;&#x69;&#x72;&#x61;&#46;&#99;&#111;&#x6d;</a>
+license: <a href="https://raw.githubusercontent.com/bionode/bionode-ncbi/master/LICENSE">MIT</a></p>
+<h2 id="-">//</h2>
+</blockquote>
+<p>//</p>
+<h2 id="usage">Usage</h2>
+<p>This module can be used in Node.js as described further below, or as a command line tool.
+Examples:
+//
+    $ npm install -g bionode-ncbi
+//</p>
+<pre><code># bionode-ncbi [command] [arguments] --limit (-l) --throughput (-t)
+$ bionode-ncbi search taxonomy solenopsis
+$ bionode-ncbi search sra human --limit 500 # only return 500 items
+$ bionode-ncbi search sra human --throughput 250 # fetch 250 items per API request
+$ bionode-ncbi download assembly solenopsis invicta
+$ bionode-ncbi urls sra solenopsis invicta
+$ bionode-ncbi link assembly bioproject 244018
+$ bionode-ncbi search gds solenopsis | dat import --json
+</code></pre><h2 id="search">Search</h2>
+<p>Takes a NCBI database string and a optional search term and returns a stream of objects found:</p>
+<pre><code>ncbi.search(&#39;sra&#39;, &#39;solenopsis&#39;).on(&#39;data&#39;, console.log)
+=&gt; { uid: &#39;280116&#39;,
+     expxml: {&quot;Summary&quot;:{&quot;Title&quot;:&quot;Single Solenopsis invicta male&quot;,&quot;Platform&quot;:{&quot;_&quot;:&quot;ILLUMINA&quot;, [...],
+     runs: {&quot;Run&quot;:[{&quot;acc&quot;:&quot;SRR620577&quot;,&quot;total_spots&quot;:&quot;23699662&quot;,&quot;total_bases&quot;:&quot;4787331724&quot;, [...],
+     extlinks: &#39;    &#39;,
+     createdate: &#39;2013/02/07&#39;,
+     updatedate: &#39;2012/11/28&#39; }
+=&gt; { uid: &#39;280243&#39;,
+     expxml: {&quot;Summary&quot;:{&quot;Title&quot;:&quot;Illumina small-insert paired end&quot;,&quot;Platform&quot;:{&quot;_&quot;:&quot;ILLUMINA&quot;, [...],
+     runs: {&quot;Run&quot;:[{&quot;acc&quot;:&quot;SRR621118&quot;,&quot;total_spots&quot;:&quot;343209818&quot;,&quot;total_bases&quot;:&quot;34320981800&quot;, [...],
+     extlinks: &#39;    &#39;,
+     createdate: &#39;2013/02/07,
+     updatedate: &#39;2012/11/28&#39; }
+=&gt; [...]
+</code></pre><p>Arguments can be passed as an object instead:</p>
+<pre><code>ncbi.search({ db: &#39;sra&#39;, term: &#39;solenopsis&#39; })
+.on(&#39;data&#39;, console.log)
+</code></pre><p>Advanced options can be passed using the previous syntax:</p>
+<pre><code>var options = {
+   db: &#39;assembly&#39;, // database to search
+   term: &#39;human&#39;,  // optional term for search
+   limit: 500,     // optional limit of NCBI results
+   throughput: 100 // optional number of items per request
+ }
+</code></pre><p>The search term can also be passed with write:</p>
+<pre><code> var search = ncbi.search(&#39;sra&#39;).on(&#39;data&#39;, console.log)
+ search.write(&#39;solenopsis&#39;)
+</code></pre><p>Or piped, for example, from a file:</p>
+<pre><code> var split = require(&#39;split&#39;)
+
+ fs.createReadStream(&#39;searchTerms.txt&#39;)
+ .pipe(split())
+ .pipe(search)
+</code></pre><h2 id="link">Link</h2>
+<p> Takes a string for source NCBI database and another for destination db and returns
+ a objects stream with unique IDs linked to the passed source db unique ID.</p>
+<pre><code> ncbi.link(&#39;taxonomy&#39;, &#39;sra&#39;, 443821)
+ =&gt; { &quot;srcDB&quot;:&quot;taxonomy&quot;,
+      &quot;destDB&quot;:&quot;sra&quot;,
+      &quot;srcUID&quot;:&quot;443821&quot;,
+
+      &quot;destUID&quot;:&quot;677548&quot; }
+ =&gt; { &quot;srcDB&quot;:&quot;taxonomy&quot;,
+      &quot;destDB&quot;:&quot;sra&quot;,
+      &quot;srcUID&quot;:&quot;443821&quot;,
+      &quot;destUID&quot;:&quot;677547&quot; }
+ =&gt; [...]
+</code></pre><p> Also works with write and pipe, like <strong>Search</strong>.</p>
+<h2 id="property-link-plink-">Property link (Plink)</h2>
+<p> Similar to Link but taked the srcID from a property of the Streamed object
+ and attached the result to a property with the name of the destination DB.</p>
+<pre><code> ncbi.search(&#39;genome&#39;, &#39;arthropoda&#39;)
+ .pipe(ncbi.expand(&#39;tax&#39;))
+ .pipe(ncbi.plink(&#39;tax&#39;, &#39;sra&#39;)
+</code></pre><h2 id="download">Download</h2>
+<p> Takes a NCBI database string and a optional search term and downloads the datasets/sequence files.
+ <strong> Currently only supports sra and assembly databases. </strong>
+ Also accepts the keyword gff for annotations.
+ Returns a stream that emits download progress and ends with download path
+ The name of the folder where the file is saved corresponds to the UID from NCBI.</p>
+<pre><code> ncbi.download(&#39;assembly&#39;, &#39;solenopsis invicta&#39;)
+ .on(&#39;data&#39;, console.log)
+ .on(&#39;end&#39;, function(path) {
+   console.log(&#39;File saved at &#39; + path)
+ }
+ =&gt; Downloading 244018/unplaced.scaf.fa.gz 0.94 % of 106 MB at 0.48 MB/s
+ =&gt; Downloading 244018/unplaced.scaf.fa.gz 100.00 % of 106 MB at 0.49 MB/s&quot;
+ =&gt; File saved at 244018/unplaced.scaf.fa.gz
+</code></pre><h2 id="urls">URLs</h2>
+<p>Takes a NCBI database string and a optional search term and returns as stream of dataset/sequence files URLs.
+<strong> Currently only supports sra and assembly databases. </strong>
+Also accepts the keyword gff for annotations.
+The value of the uid property corresponds to the UID from NCBI.</p>
+<pre><code> ncbi.urls(&#39;assembly&#39;, &#39;solenopsis invicta&#39;)
+ .on(&#39;data&#39;, console.log)
+ =&gt; {&quot;url&quot;:&quot;http://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/invertebrates/Solenopsis_invicta/Si_gnG/Primary_Assembly/unplaced_scaffolds/FASTA/unplaced.scaf.fa.gz&quot;,
+     &quot;uid&quot;:&quot;244018/&quot;}
+</code></pre><h2 id="expand">Expand</h2>
+<p>Takes a property (e.g., biosample) and optional destination property
+(e.g., sample) and looks for a field named property+id (biosampleid)
+in the Streamed object. Then it will do a ncbi.search for that id and save
+the result under Streamed object.property.</p>
+<pre><code>ncbi.search(&#39;genome&#39;, &#39;arthropoda&#39;).pipe(ncbi.expand(&#39;assembly&#39;))
+</code></pre><h2 id="fetch">Fetch</h2>
+<p>Allows retrieval of records from NCBI databases. Takes the database name, and a search term,
+and returns the records from the database that match the search term. There are optional
+advanced parameters that allow you to define how many records to retrieve and extra options
+for genes. These parameters should be passed as an object.</p>
+<p>i.e it can return a subset of a genetic sequence of a requested species</p>
+<pre><code> ncbi.fetch(&#39;sra&#39;, &#39;solenopsis_invicta&#39;)
+ =&gt; {&quot;EXPERIMENT_PACKAGE_SET&quot;:
+       {&quot;EXPERIMENT_PACKAGE&quot;:
+         [{&quot;EXPERIMENT&quot;:
+           [{&quot;$&quot;:{&quot;xmlns&quot;:&quot;&quot;,&quot;alias&quot;:&quot;Me&quot;,&quot;accession&quot;:&quot;SRX757228,
+           ...
+</code></pre><p>With advanced parameters for sequence databases(all are optional):</p>
+<pre><code> var opts = {
+   db: &#39;nucest&#39;,
+   term: &#39;guillardia_theta&#39;,
+   strand: 1,
+   complexity: 4
+ }
+ ncbi.fetch(opts)
+ =&gt; { id: &#39;gi|557436392|gb|HE992975.1|HE992975 HE992975 Guillardia theta CCMP 327 Guillardia theta cDNA clone sg-p_014_h06, mRNA sequence&#39;,
+     seq: &#39;GAAGGCGATTCCAATGGTGCGAGCGAGGCAGCGAACAGACGCAGCGGGGAGAG...
+    }
+ =&gt; [...]
+</code></pre><p>For some databases there are multiple return types. A default one will be chosen
+automatically, however it is possible to specify this via the rettype option e.g:</p>
+<p>The NCBI website provides a list of databasese supported by efetch here:
+<a href="http://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly">http://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly</a></p>
+
+        <div class="navlinks">
+          <a class="nextp button" href="05-bionode-pipelines.html">OK, next! &raquo;</a>
+            <a class="lastp navlink" href="03-bionode-fasta.html">&laquo; back</a>
+        </div>
+    </section>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+</body>
+</html>

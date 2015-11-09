@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <title>Submarine</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+</head>
+<body>
+  <div class="wrapper">
+
+      <section class="content">
+        <p><a href="index.html">table of contents</a></p>
+      <h1 id="getting-started">Getting started</h1>
+<h2 id="online-this-workshop-">Online (this workshop)</h2>
+<p>If you&#39;re planning to try Bionode out using <a href="http://try.bionode.io">try.bionode.io</a>, you&#39;re already all set!</p>
+<h2 id="install-it-on-your-machine-alternative-">Install it on your machine (alternative)</h2>
+<p>Otherwise, you want to run it locally on you machine, the fist step is to get Node.js. There are several ways to do it, but we recommend the following:</p>
+<pre><code class="lang-bash"># OS X (using Homebrew)
+brew install n # Get a Node.js version manager, very useful.
+
+# Ubuntu
+sudo apt-get install npm
+npm install n -g
+
+# Windows
+## Go to http://nodejs.org, and follow instructions
+
+# Install version 0.10.40 of Node.js and load it in your $PATH
+n 0.10.40
+
+# Get Bionode and friends
+## Installs bionode &#39;globally&#39;, i.e., as a Command Line
+npm install bionode -g
+## You can also install a specific module instead of all
+npm install bionode-ncbi -g
+## Install some other useful tools
+npm install dat json -g
+</code></pre>
+<h2 id="quci">Quci</h2>
+<h2 id="available-modules">Available modules</h2>
+<p>After you&#39;re setup you can have a quick look at the available <a href="https://github.com/bionode/bionode#list-of-modules">modules on GitHub</a> and jump to the section about that module, or keep reading</p>
+<h2 id="how-things-work-in-general">How things work in general</h2>
+<h3 id="command-line-interface">Command Line Interface</h3>
+<p>Check the documentation and status of each module, but in general you can use the command line interface like this:</p>
+<pre><code class="lang-bash">bionode ncbi urls assembly Acromyrmex | json -ga genomic.fna
+</code></pre>
+<p>That command queries the NCBI database and looks the url of the genome assembly for the species Acromyrmex (an ant). This will return a JSON object that is then piped to the <code>json</code> command so that we can retrieve the property <code>genomic.fna</code> (url of the file with DNA sequences in fna/fasta format) and filter out the other properties.</p>
+<h3 id="javascript-api">JavaScript API</h3>
+<p>Now the same could be done using the JavaScript API, but first you need to create a folder for your project and then for each module your are going to <code>require</code> in your code, you need to do <code>npm install module_name</code> (without the <code>-g</code> flag) to install a copy of that module locally in your project folder. You only use the <code>-g</code> flag when you want to install a module as a command line tool.</p>
+<pre><code class="lang-bash">npm install bionode-ncbi
+</code></pre>
+<pre><code class="lang-javascript">var bio = require(&#39;bionode&#39;)
+</code></pre>
+<p> The you can generally use bionode modules in 3 different ways:</p>
+<h4 id="the-callback-pattern">The Callback pattern</h4>
+<p>A <a href="https://docs.nodejitsu.com/articles/getting-started/control-flow/what-are-callbacks">callback</a> simply means, you ask for something and once you get all of it you process it</p>
+<pre><code class="lang-javascript">// Query NCBI
+bio.ncbi.urls(&#39;assembly&#39;, &#39;Acromyrmex&#39;, function(urls) {
+  # Got all the urls as an array, print just first genome
+  console.log(urls[0].genomic.fna)
+})
+</code></pre>
+<h4 id="the-event-pattern">The Event pattern</h4>
+<p>Callbacks are fine for most cases, but if you&#39;re getting too much data your code will run out memory and crash, or timeout if you try to wait for everything and then process it. A solutions is to use Events to do something as you get chunks of data.</p>
+<pre><code class="lang-javascript">bio.ncbi.urls(&#39;assembly&#39;, &#39;Acromyrmex&#39;).on(&#39;data&#39;, printGenomeURL)
+function printGenomeURL(url) {
+  console.log(url.genomic.fna)
+}
+</code></pre>
+<h4 id="the-pipe-pattern">The Pipe pattern</h4>
+<p><a href="https://github.com/substack/stream-handbook">Node.js Streams</a> are based on Events and allow you to get rid of a lot of boilerplate code by chaining functions together.</p>
+<pre><code class="lang-javascript">var tool = require(&#39;tool-stream&#39;)
+bio.ncbi.urls(&#39;assembly&#39;, &#39;Acromyrmex&#39;)
+.pipe(tool.extractProperty(&#39;genomic.fna&#39;))
+.pipe(process.stdout)
+</code></pre>
+<h3 id="how-is-it-done-in-other-libraries-">How is it done in other libraries?</h3>
+<p>Here&#39;s an example of how you would do the same in <a href="http://biopython.org">BioPython</a> (other libs are similar):</p>
+<pre><code class="lang-python"># URL for the Acromyrmex assembly?
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA_000188075.1_Si_gnG
+import xml.etree.ElementTree as ET
+from Bio import Entrez
+Entrez.email = &quot;mail@bmpvieira.com&quot;
+esearch_handle = Entrez.esearch(db=&quot;assembly&quot;, term=&quot;Acromyrmex&quot;)
+esearch_record = Entrez.read(esearch_handle)
+for id in esearch_record[&#39;IdList&#39;]:
+  esummary_handle = Entrez.esummary(db=&quot;assembly&quot;, id=id)
+  esummary_record = Entrez.read(esummary_handle)
+  documentSummarySet = esummary_record[&#39;DocumentSummarySet&#39;]
+  document = documentSummarySet[&#39;DocumentSummary&#39;][0]
+  metadata_XML = document[&#39;Meta&#39;].encode(&#39;utf-8&#39;)
+  metadata = ET.fromstring(&#39;&#39; + metadata_XML + &#39;&#39;)
+  for entry in Metadata[1]:
+    print entry.text
+</code></pre>
+<h3 id="more-node-js-tips">More Node.js tips</h3>
+<p>If you git clone a Node.js folder, to install it&#39;s dependencies you just cd into it and type <code>npm install</code>.
+If you want to install that module that you just git cloned as a command tool, you cd into the folder and do <code>npm link</code> (useful for development).</p>
+
+        <div class="navlinks">
+          <a class="nextp button" href="03-bionode-fasta.html">OK, next! &raquo;</a>
+            <a class="lastp navlink" href="01-introduction.html">&laquo; back</a>
+        </div>
+    </section>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+</body>
+</html>
