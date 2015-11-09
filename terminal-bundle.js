@@ -4768,11 +4768,11 @@ function objectToString(o) {
 }).call(this,{"isBuffer":require("../../../../../../../../../../../../browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
 },{"../../../../../../../../../../../../browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":75}],27:[function(require,module,exports){
 module.exports=require(14)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/inherits/inherits_browser.js":14}],28:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/inherits/inherits_browser.js":14}],28:[function(require,module,exports){
 module.exports=require(15)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],29:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],29:[function(require,module,exports){
 module.exports=require(17)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],30:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],30:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
 },{"./lib/_stream_transform.js":24}],31:[function(require,module,exports){
@@ -10884,55 +10884,55 @@ if (typeof module !== 'undefined') {
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],38:[function(require,module,exports){
 module.exports=require(4)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/index.js":4,"_process":78,"buffer":69,"end-of-stream":39,"readable-stream":52,"util":98}],39:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/index.js":4,"_process":78,"buffer":69,"end-of-stream":39,"readable-stream":52,"util":98}],39:[function(require,module,exports){
 module.exports=require(5)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/end-of-stream/index.js":5,"once":41}],40:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/end-of-stream/index.js":5,"once":41}],40:[function(require,module,exports){
 module.exports=require(6)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/end-of-stream/node_modules/once/node_modules/wrappy/wrappy.js":6}],41:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/end-of-stream/node_modules/once/node_modules/wrappy/wrappy.js":6}],41:[function(require,module,exports){
 module.exports=require(7)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/end-of-stream/node_modules/once/once.js":7,"wrappy":40}],42:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/end-of-stream/node_modules/once/once.js":7,"wrappy":40}],42:[function(require,module,exports){
 module.exports=require(8)
-},{"./_stream_readable":44,"./_stream_writable":46,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_duplex.js":8,"core-util-is":47,"inherits":53,"process-nextick-args":49}],43:[function(require,module,exports){
+},{"./_stream_readable":44,"./_stream_writable":46,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_duplex.js":8,"core-util-is":47,"inherits":53,"process-nextick-args":49}],43:[function(require,module,exports){
 module.exports=require(9)
-},{"./_stream_transform":45,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_passthrough.js":9,"core-util-is":47,"inherits":53}],44:[function(require,module,exports){
+},{"./_stream_transform":45,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_passthrough.js":9,"core-util-is":47,"inherits":53}],44:[function(require,module,exports){
 module.exports=require(10)
-},{"./_stream_duplex":42,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_readable.js":10,"_process":78,"buffer":69,"core-util-is":47,"events":73,"inherits":53,"isarray":48,"process-nextick-args":49,"string_decoder/":50,"util":68}],45:[function(require,module,exports){
+},{"./_stream_duplex":42,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_readable.js":10,"_process":78,"buffer":69,"core-util-is":47,"events":73,"inherits":53,"isarray":48,"process-nextick-args":49,"string_decoder/":50,"util":68}],45:[function(require,module,exports){
 module.exports=require(11)
-},{"./_stream_duplex":42,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_transform.js":11,"core-util-is":47,"inherits":53}],46:[function(require,module,exports){
+},{"./_stream_duplex":42,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_transform.js":11,"core-util-is":47,"inherits":53}],46:[function(require,module,exports){
 module.exports=require(12)
-},{"./_stream_duplex":42,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_writable.js":12,"buffer":69,"core-util-is":47,"events":73,"inherits":53,"process-nextick-args":49,"util-deprecate":51}],47:[function(require,module,exports){
+},{"./_stream_duplex":42,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/lib/_stream_writable.js":12,"buffer":69,"core-util-is":47,"events":73,"inherits":53,"process-nextick-args":49,"util-deprecate":51}],47:[function(require,module,exports){
 module.exports=require(13)
-},{"../../../../../../../../../../browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":75,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js":13}],48:[function(require,module,exports){
+},{"../../../../../../../../../../browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":75,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js":13}],48:[function(require,module,exports){
 module.exports=require(15)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],49:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],49:[function(require,module,exports){
 module.exports=require(16)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/process-nextick-args/index.js":16,"_process":78}],50:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/process-nextick-args/index.js":16,"_process":78}],50:[function(require,module,exports){
 module.exports=require(17)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],51:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],51:[function(require,module,exports){
 module.exports=require(18)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/util-deprecate/browser.js":18}],52:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/util-deprecate/browser.js":18}],52:[function(require,module,exports){
 module.exports=require(19)
-},{"./lib/_stream_duplex.js":42,"./lib/_stream_passthrough.js":43,"./lib/_stream_readable.js":44,"./lib/_stream_transform.js":45,"./lib/_stream_writable.js":46,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/readable.js":19}],53:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":42,"./lib/_stream_passthrough.js":43,"./lib/_stream_readable.js":44,"./lib/_stream_transform.js":45,"./lib/_stream_writable.js":46,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/readable.js":19}],53:[function(require,module,exports){
 module.exports=require(14)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/inherits/inherits_browser.js":14}],54:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/inherits/inherits_browser.js":14}],54:[function(require,module,exports){
 arguments[4][22][0].apply(exports,arguments)
-},{"./_stream_readable":55,"./_stream_writable":57,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_duplex.js":22,"_process":78,"core-util-is":58,"inherits":53}],55:[function(require,module,exports){
+},{"./_stream_readable":55,"./_stream_writable":57,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_duplex.js":22,"_process":78,"core-util-is":58,"inherits":53}],55:[function(require,module,exports){
 arguments[4][23][0].apply(exports,arguments)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js":23,"_process":78,"buffer":69,"core-util-is":58,"events":73,"inherits":53,"isarray":59,"stream":94,"string_decoder/":60}],56:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js":23,"_process":78,"buffer":69,"core-util-is":58,"events":73,"inherits":53,"isarray":59,"stream":94,"string_decoder/":60}],56:[function(require,module,exports){
 arguments[4][24][0].apply(exports,arguments)
-},{"./_stream_duplex":54,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_transform.js":24,"core-util-is":58,"inherits":53}],57:[function(require,module,exports){
+},{"./_stream_duplex":54,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_transform.js":24,"core-util-is":58,"inherits":53}],57:[function(require,module,exports){
 arguments[4][25][0].apply(exports,arguments)
-},{"./_stream_duplex":54,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_writable.js":25,"_process":78,"buffer":69,"core-util-is":58,"inherits":53,"stream":94}],58:[function(require,module,exports){
+},{"./_stream_duplex":54,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_writable.js":25,"_process":78,"buffer":69,"core-util-is":58,"inherits":53,"stream":94}],58:[function(require,module,exports){
 module.exports=require(13)
-},{"../../../../../../../../../../browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":75,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js":13}],59:[function(require,module,exports){
+},{"../../../../../../../../../../browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":75,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js":13}],59:[function(require,module,exports){
 module.exports=require(15)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],60:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],60:[function(require,module,exports){
 module.exports=require(17)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],61:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],61:[function(require,module,exports){
 arguments[4][30][0].apply(exports,arguments)
-},{"./lib/_stream_transform.js":56,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/transform.js":30}],62:[function(require,module,exports){
+},{"./lib/_stream_transform.js":56,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/transform.js":30}],62:[function(require,module,exports){
 module.exports=require(31)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/through2.js":31,"_process":78,"readable-stream/transform":61,"util":98,"xtend":64}],63:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/through2.js":31,"_process":78,"readable-stream/transform":61,"util":98,"xtend":64}],63:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -10979,7 +10979,7 @@ if (WebSocket) ws.prototype = WebSocket.prototype;
 
 },{}],64:[function(require,module,exports){
 module.exports=require(32)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/xtend/immutable.js":32}],65:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/xtend/immutable.js":32}],65:[function(require,module,exports){
 (function (process,Buffer){
 var through = require('through2')
 var duplexify = require('duplexify')
@@ -11122,7 +11122,7 @@ module.exports = function(parentDiv) {
 
 },{}],68:[function(require,module,exports){
 module.exports=require(67)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/browserify/lib/_empty.js":67}],69:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/browserify/lib/_empty.js":67}],69:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -12724,7 +12724,7 @@ function isUndefined(arg) {
 
 },{}],74:[function(require,module,exports){
 module.exports=require(14)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/inherits/inherits_browser.js":14}],75:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/inherits/inherits_browser.js":14}],75:[function(require,module,exports){
 /**
  * Determine if an object is Buffer
  *
@@ -12745,7 +12745,7 @@ module.exports = function (obj) {
 
 },{}],76:[function(require,module,exports){
 module.exports=require(15)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],77:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/isarray/index.js":15}],77:[function(require,module,exports){
 exports.endianness = function () { return 'LE' };
 
 exports.hostname = function () {
@@ -13575,7 +13575,7 @@ module.exports = require("./lib/_stream_duplex.js")
 
 },{"./lib/_stream_duplex.js":84}],84:[function(require,module,exports){
 arguments[4][22][0].apply(exports,arguments)
-},{"./_stream_readable":86,"./_stream_writable":88,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_duplex.js":22,"_process":78,"core-util-is":89,"inherits":74}],85:[function(require,module,exports){
+},{"./_stream_readable":86,"./_stream_writable":88,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_duplex.js":22,"_process":78,"core-util-is":89,"inherits":74}],85:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -15394,7 +15394,7 @@ exports.PassThrough = require('./lib/_stream_passthrough.js');
 
 },{"./lib/_stream_duplex.js":84,"./lib/_stream_passthrough.js":85,"./lib/_stream_readable.js":86,"./lib/_stream_transform.js":87,"./lib/_stream_writable.js":88,"stream":94}],92:[function(require,module,exports){
 arguments[4][30][0].apply(exports,arguments)
-},{"./lib/_stream_transform.js":87,"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/transform.js":30}],93:[function(require,module,exports){
+},{"./lib/_stream_transform.js":87,"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/transform.js":30}],93:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
 },{"./lib/_stream_writable.js":88}],94:[function(require,module,exports){
@@ -15528,7 +15528,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 },{"events":73,"inherits":74,"readable-stream/duplex.js":83,"readable-stream/passthrough.js":90,"readable-stream/readable.js":91,"readable-stream/transform.js":92,"readable-stream/writable.js":93}],95:[function(require,module,exports){
 module.exports=require(17)
-},{"/Users/bmpvieira/GitHub/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],96:[function(require,module,exports){
+},{"/home/travis/build/bionode/get-bionode/node_modules/adventure-time/node_modules/docker-browser-console/node_modules/duplexify/node_modules/readable-stream/node_modules/string_decoder/index.js":17,"buffer":69}],96:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a

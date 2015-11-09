@@ -1,1 +1,8 @@
-script: npm run deploy
+language: node_js
+node_js:
+  - "0.10"
+after_script:
+  - bash deploy.sh
+env:
+  global:
+    secure: 1shif4UTS3RUBc3JqYiqpqtQJAU8xh7WlseA1ZsZGANJb72PiTqIYGvtGAd054Q4E05P7xdPaXkMwZ77yOlxB6xWCfu4JoHBGKD3aM+UKHCc7bicr34O5ZMpKd9fz0LkWink/2+K5pBIzeiruLjJ3FI3QsktmbK2ZTfXzfmrK1gITL6+G7CAM9mwohRLRXX+CEGT2sDMuJ8S8ZKkVJPnPa+J2cAgzkFEnKtKp1nuRWQ//wGm2yFjTKH2xAsXlygJ+8IOoQUs3mqAegLDqkEw+noxtrMFZbE9raZctEB8zF4293JSpnCq3gy3EzIvLAAPEAfTED1JCSxnWPsniEim3BAXXFtwAYWrcpH++YQmUvwLaG3r1svEf2nRK+oTHMcyl0Ve8D+xScJYt7ZqXXfbmhKr6EqJoBaayKWEp8lVzVY7YAs6XewOWSmuyq8V9FqYPspXwxn95/NRm8x+lOi7ew2nPeyWZZeoOWQ56nIZgYZU36Mqs2hbrpyUCzKSpZA5gQWvK5CadCR4/KBWvitC7tdKO063CDzeB0F18GUjhRjYZvzZzbUgbCJj9+qXEBNS0JqRvU4e6L/rvpTM/27g2InD+5MxYay59OmiYy6LWc7EiEeU9d3lI9xqGJ8jVKEkcGziyti6gTgZaQqPpQRIBQ0OftClWVKl84DxJX6B/ZA=
