@@ -1,3 +1,5 @@
+# How to write Node.js Streams (WIP section)
+
 ```javascript
 var through = require('through2')
 var stream = through2.obj(transform)
@@ -48,4 +50,29 @@ ncbi.search('assembly', 'spiders')
 .pipe(myStream)
 .pipe(json.stringify())
 .pipe(process.stdout)
+```
+
+
+```javascript
+var counter = 0
+  myStream
+  .on('data', function (data) {
+    counter++
+  })
+  .on('end', function () {
+    console.log('Processed ' + counter)
+  })
+
+
+  var counter = 0
+
+  var count = function (data) {
+    counter++
+  }
+
+  var log = function () {
+    console.log('Processed ' + counter)
+  }
+
+  myStream.on('data', count).on('end', log)
 ```
