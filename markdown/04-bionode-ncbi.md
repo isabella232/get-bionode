@@ -1,5 +1,7 @@
 # Bionode-ncbi (WIP section)
 
+## Quick Examples
+
 ```bash
 bionode-ncbi search genome spiders
 bionode-ncbi search genome spiders | wc
@@ -21,23 +23,12 @@ bionode-ncbi download assembly Guillardia theta | \
   bionode-fasta --write > gtheta-big-scaffolds.fasta
 ```
 
-# bionode-ncbi
-> Node.js module for working with the NCBI API (aka e-utils) using Streams.
->
-> doi: [10.5281/zenodo.10610](http://dx.doi.org/10.5281/zenodo.10610)
-> author: [Bruno Vieira](http://bmpvieira.com)
-> email: <mail@bmpvieira.com>
-> license: [MIT](https://raw.githubusercontent.com/bionode/bionode-ncbi/master/LICENSE)
-//
----
-
-//
 ## Usage
-This module can be used in Node.js as described further below, or as a command line tool.
+
 Examples:
-//
+
     $ npm install -g bionode-ncbi
-//
+
     # bionode-ncbi [command] [arguments] --limit (-l) --throughput (-t)
     $ bionode-ncbi search taxonomy solenopsis
     $ bionode-ncbi search sra human --limit 500 # only return 500 items

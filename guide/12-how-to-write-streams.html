@@ -12,7 +12,8 @@
 
       <section class="content">
         <p><a href="index.html">table of contents</a></p>
-      <pre><code class="lang-javascript">var through = require(&#39;through2&#39;)
+      <h1 id="how-to-write-node-js-streams-wip-section-">How to write Node.js Streams (WIP section)</h1>
+<pre><code class="lang-javascript">var through = require(&#39;through2&#39;)
 var stream = through2.obj(transform)
 function transform (obj, enc, next) {
   // do things, example:
@@ -57,6 +58,28 @@ ncbi.search(&#39;assembly&#39;, &#39;spiders&#39;)
 .pipe(myStream)
 .pipe(json.stringify())
 .pipe(process.stdout)
+</code></pre>
+<pre><code class="lang-javascript">var counter = 0
+  myStream
+  .on(&#39;data&#39;, function (data) {
+    counter++
+  })
+  .on(&#39;end&#39;, function () {
+    console.log(&#39;Processed &#39; + counter)
+  })
+
+
+  var counter = 0
+
+  var count = function (data) {
+    counter++
+  }
+
+  var log = function () {
+    console.log(&#39;Processed &#39; + counter)
+  }
+
+  myStream.on(&#39;data&#39;, count).on(&#39;end&#39;, log)
 </code></pre>
 
         <div class="navlinks">

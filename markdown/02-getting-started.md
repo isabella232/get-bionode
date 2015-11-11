@@ -28,8 +28,6 @@ npm install bionode-ncbi -g
 npm install dat json -g
 ```
 
-## Quci
-
 ## Available modules
 After you're setup you can have a quick look at the available [modules on GitHub](https://github.com/bionode/bionode#list-of-modules) and jump to the section about that module, or keep reading
 
@@ -42,7 +40,7 @@ Check the documentation and status of each module, but in general you can use th
 bionode ncbi urls assembly Acromyrmex | json -ga genomic.fna
 ```
 
-That command queries the NCBI database and looks the url of the genome assembly for the species Acromyrmex (an ant). This will return a JSON object that is then piped to the `json` command so that we can retrieve the property `genomic.fna` (url of the file with DNA sequences in fna/fasta format) and filter out the other properties.
+That command queries the NCBI database and retrieves URLs of the genome assembly for the ant species Acromyrmex. This will return a JSON object that is then piped to the `json` command so that we can retrieve only the property `genomic.fna` (the url of the file with DNA sequences in fna/fasta format) and filter out the other properties.
 
 ### JavaScript API
 Now the same could be done using the JavaScript API, but first you need to create a folder for your project and then for each module your are going to `require` in your code, you need to do `npm install module_name` (without the `-g` flag) to install a copy of that module locally in your project folder. You only use the `-g` flag when you want to install a module as a command line tool.
@@ -69,7 +67,7 @@ bio.ncbi.urls('assembly', 'Acromyrmex', function(urls) {
 ```
 
 #### The Event pattern
-Callbacks are fine for most cases, but if you're getting too much data your code will run out memory and crash, or timeout if you try to wait for everything and then process it. A solutions is to use Events to do something as you get chunks of data.
+Callbacks are fine for most cases, but if you're getting too much data your code will run out memory and crash. A solutions is to use [Events](https://nodesource.com/blog/understanding-the-nodejs-event-loop) to do something as you get one object or chunks of data.
 
 ```javascript
 bio.ncbi.urls('assembly', 'Acromyrmex').on('data', printGenomeURL)

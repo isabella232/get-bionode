@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <title>Submarine</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+</head>
+<body>
+  <div class="wrapper">
+
+      <section class="content">
+        <p><a href="index.html">table of contents</a></p>
+      <h1 id="pipelines-wip-section-">Pipelines (WIP section)</h1>
+<pre><code class="lang-javascript">ncbi
+.search(&#39;sra&#39;, &#39;Solenopsis invicta&#39;)
+.pipe(fork1)
+.pipe(dat.reads)
+
+fork1
+.pipe(tool.extractProperty(&#39;expxml.Biosample.id&#39;))
+.pipe(ncbi.search(&#39;biosample&#39;))
+.pipe(dat.samples)
+
+fork1
+.pipe(tool.extractProperty(&#39;uid&#39;))
+.pipe(ncbi.link(&#39;sra&#39;, &#39;pubmed&#39;))
+.pipe(ncbi.search(&#39;pubmed&#39;))
+.pipe(fork2)
+.pipe(dat.papers)
+</code></pre>
+<p><img src="/static/img/pipelines-async.gif" alt="pipelines async"></p>
+<p>Pipelines and alternatives to Makefiles?
+bionode-example-dat-gasket
+get-dat bionode gasket example
+datproject/datscript
+groundwater/datscript
+mafintosh/datscript
+melaniecebula/datscript
+ekg/datscript
+hackfile
+get-dat workshop</p>
+<h2 id="coffeescript-pipeline">CoffeeScript pipeline</h2>
+<pre><code class="lang-coffee">ncbi.search &#39;genome&#39;, &#39;rodentia&#39;
+.pipe ncbi.expand &#39;assembly&#39;
+.pipe ncbi.expand &#39;tax&#39;
+.pipe getLineage()
+.pipe ncbi.link &#39;tax&#39;, &#39;sra&#39;
+.pipe ncbi.expand &#39;sra&#39;
+.pipe through.obj (obj, enc, next) -&gt;
+  async.map obj.sra, expandBiosample, (error, sra)=&gt;
+    obj.sra = sra
+    @push obj
+    next()
+pipeline1
+  ncbi.search genome rodentia
+  ncbi.expand assembly
+  ncbi.expand tax
+  getLineage
+  ncbi.link tax sra
+  ncbi.expand sra
+  stream (obj, next) -&gt;
+    async.map obj.sra expandBiosample (sra) =&gt;
+      obj.sra = sra
+      @push obj
+      next()
+</code></pre>
+
+        <div class="navlinks">
+          <a class="nextp button" href="07-write-once-run-anywhere.html">OK, next! &raquo;</a>
+            <a class="lastp navlink" href="05-bionode-seq.html">&laquo; back</a>
+        </div>
+    </section>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+</body>
+</html>

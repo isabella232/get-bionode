@@ -13,6 +13,7 @@
       <section class="content">
         <p><a href="index.html">table of contents</a></p>
       <h1 id="bionode-ncbi-wip-section-">Bionode-ncbi (WIP section)</h1>
+<h2 id="quick-examples">Quick Examples</h2>
 <pre><code class="lang-bash">bionode-ncbi search genome spiders
 bionode-ncbi search genome spiders | wc
 bionode-ncbi search genome spiders | head -n 1 | json
@@ -32,23 +33,11 @@ bionode-ncbi download assembly Guillardia theta | \
   json -ga -c &#39;this.seq.length &gt; 10000&#39; | \
   bionode-fasta --write &gt; gtheta-big-scaffolds.fasta
 </code></pre>
-<h1 id="bionode-ncbi">bionode-ncbi</h1>
-<blockquote>
-<p>Node.js module for working with the NCBI API (aka e-utils) using Streams.</p>
-<p>doi: <a href="http://dx.doi.org/10.5281/zenodo.10610">10.5281/zenodo.10610</a>
-author: <a href="http://bmpvieira.com">Bruno Vieira</a>
-email: <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#109;&#x61;&#x69;&#108;&#x40;&#x62;&#x6d;&#112;&#118;&#x69;&#x65;&#x69;&#114;&#97;&#x2e;&#99;&#111;&#x6d;">&#109;&#x61;&#x69;&#108;&#x40;&#x62;&#x6d;&#112;&#118;&#x69;&#x65;&#x69;&#114;&#97;&#x2e;&#99;&#111;&#x6d;</a>
-license: <a href="https://raw.githubusercontent.com/bionode/bionode-ncbi/master/LICENSE">MIT</a></p>
-<h2 id="-">//</h2>
-</blockquote>
-<p>//</p>
 <h2 id="usage">Usage</h2>
-<p>This module can be used in Node.js as described further below, or as a command line tool.
-Examples:
-//
-    $ npm install -g bionode-ncbi
-//</p>
-<pre><code># bionode-ncbi [command] [arguments] --limit (-l) --throughput (-t)
+<p>Examples:</p>
+<pre><code>$ npm install -g bionode-ncbi
+
+# bionode-ncbi [command] [arguments] --limit (-l) --throughput (-t)
 $ bionode-ncbi search taxonomy solenopsis
 $ bionode-ncbi search sra human --limit 500 # only return 500 items
 $ bionode-ncbi search sra human --throughput 250 # fetch 250 items per API request
@@ -171,7 +160,7 @@ automatically, however it is possible to specify this via the rettype option e.g
 <a href="http://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly">http://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly</a></p>
 
         <div class="navlinks">
-          <a class="nextp button" href="05-bionode-pipelines.html">OK, next! &raquo;</a>
+          <a class="nextp button" href="05-bionode-seq.html">OK, next! &raquo;</a>
             <a class="lastp navlink" href="03-bionode-fasta.html">&laquo; back</a>
         </div>
     </section>

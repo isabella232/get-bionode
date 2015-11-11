@@ -1,45 +1,45 @@
 # Introduction
 
 ## What is [Bionode](http://bionode.io)?
-It's a "Modular and universal bioinformatics"! Modular because it follow the UNIX philosophy of small tools, each one just trying to do "one thing well". Universal because it can be used anywhere, on a laptop, a server or even a browser!
+It's "Modular and universal bioinformatics"! Modular because it follow the UNIX philosophy of small tools, each one just trying to do "one thing well". Universal because it can be used anywhere, on a laptop, a server or even a browser!
 
 There is fundamentally three things that sets it apart from other [bio* libraries](http://www.open-bio.org/wiki/Projects#Main_projects):
-* It can run in a browser since it's written in JavaScript, but also on a server since it's written in [Node.js](http://nodejs.org);
-* It takes advantage of [Node.js' asynchronous and event-based nature](https://nodejs.org/en/about) and [Streams](http://joshondesign.com/2014/06/25/nodestreamsareawesome) to pipe data or objects around in a scalable way;
-* In addition to a JavaScript API, each module also provides a [command line interface](https://github.com/bionode/bionode-ncbi#command-line-examples) that allows users to use and mix bionode in their existing tool chain without having to learn or write JavaScript.
+* It can run in a browser since it's written in JavaScript, but also on a server since it's using [Node.js](http://nodejs.org);
+* It takes advantage of [Node.js' asynchronous and event-based nature](https://nodejs.org/en/about), and [Streams](http://joshondesign.com/2014/06/25/nodestreamsareawesome) to pipe data or objects around in a scalable way;
+* In addition to a [JavaScript API](https://github.com/bionode/bionode-ncbi#usage), each module also provides a [command line interface](https://github.com/bionode/bionode-ncbi#command-line-examples) that allows users to use and mix bionode in their existing tool chain of favorite programming language, without having to learn or write JavaScript.
 
 Each module has it's own [GitHub repository](http://github.com/bionode) with testing and documentation, but there's a [main module](http://github.com/bionode/bionode) that simply depends on the other modules, so that they can all be installed in one step.
 
-Module exchange data with each other using as standards [NDJSON](http://ndjson.org) and [Protocol Buffers](https://developers.google.com/protocol-buffers).
+Modules exchange data with each other using the standards [NDJSON](http://ndjson.org) and [Protocol Buffers](https://developers.google.com/protocol-buffers).
 
 ## How did it started?
 [Bruno Vieira](http://bmpvieira.com) started it in 2014 as a side project of his PhD in Bioinformatics and Population Genomics at [WurmLab](http://wurmlab.github.io) because he needed to write code for several purposes, and some of it would eventually end up having to be rewritten in JavaScript for some [biological web projects](http://wurmlab.github.io/tools/).
-Since he had a background in Node.js, he decided to just write everything in Node.js from the start and also benefit of some of it's features, that seemed very appropriate for orchestrating bioinformatics pipelines. The philosophy of small modules that is present in the Node.js community also allowed for each piece of code to be quickly published as a module with a few extras (continous integration, auto-generated documentation, badges) rather than getting lost as scripts somewhere waiting to be integrated in a bigger monolithic project.
+Since he had a background in Node.js, he decided to just write everything in Node.js from the start, and also benefit of some of Node.js' features that seemed very appropriate for orchestrating bioinformatics pipelines. The philosophy of small modules that is present in the Node.js community also allowed for each piece of code to be quickly published as a module with a few extras (continous integration, auto-generated documentation, badges) rather than getting lost as scripts somewhere waiting to be integrated in a bigger monolithic project.
 
-![badges](/static/img/badges.png)
+[![badges](/static/img/badges.png)](http://github.com/bionode/bionode-ncbi)
 
 ## How big is the community?
-Bionode has a small community around it, with a few active developers and some new modules contributed.
+Bionode has a small community around it, with a few active developers that already contributed new modules.
 
 ![team](/static/img/team.png)
 
 Bionode's best practices have also inspired [other projects](https://github.com/hydronode/hydronode).
 
 ## What kind of tools are you developing?
-The overall theme is bioinformatics, besides that, any tools is welcome. The idea is that if someone is writing JavaScript for biology, or agrees with some of our principles, then that code is welcome in Bionode.
-Currently there's modules to retrieve biological data from web resources (e.g., [bionode-ncbi](http://github.com/bionode/bionode-ncbi) and file formats parsers and converters (e.g., [bionode-fasta](http://github.com/bionode/bionode-fasta). There's also wrappers around existing bioinformatics tools (e.g., [bionode-sam](http://github.com/bionode/bionode-sam)), which obviously only runs server side (since those tools are not written in JavaScript) to make it easier to build [pipelines in Node.js](https://github.com/bionode/bionode-example-dat-gasket#bionode-example-with-dat-and-gasket). However there is some discussion if [wrappers are in the scope](http://github.com/bionode/bionode/issues/29) of bionode.
+The overall theme is bioinformatics, besides that, any tools is welcome. The idea is that if someone is writing JavaScript for biology, or agrees with some of our [principles](http://github.com/bionode/bionode-template#principles), then that code is welcome in Bionode.
+Currently there's modules to retrieve biological data from web resources (e.g., [bionode-ncbi](http://github.com/bionode/bionode-ncbi)), deal with specific bioinformatic data formats (e.g., [bionode-fasta](http://github.com/bionode/bionode-fasta)), and handle sequences ([bionode-seq](http://github.com/bionode/bionode-seq)). There's also wrappers around existing bioinformatics tools (e.g., [bionode-sam](http://github.com/bionode/bionode-sam)), which obviously only run server side (since those tools are not written in JavaScript) to make it easier to build [pipelines in Node.js](https://github.com/bionode/bionode-example-dat-gasket#bionode-example-with-dat-and-gasket). However there is some discussion if [wrappers are in the scope](http://github.com/bionode/bionode/issues/29) of Bionode.
 Once we have more basic tools, there might be a move towards genetic algorithms and machine learning.
 
 ## Current state
-You can see a global list of modules on [GitHub](https://github.com/bionode/bionode#list-of-modules). Many are still in early development, so check the READMEs, the badges with the status of the module to see if it's broken. On each README you have a [link to the documentation](https://github.com/bionode/bionode-ncbi#usage) of each module, but you can also check a concatenated version of all the documentation at http://doc.bionode.io.
+You can see a global list of modules on [GitHub](https://github.com/bionode/bionode#list-of-modules). Many are still in early development, so check the READMEs and the status badges. On each README you have a [link to the documentation](https://github.com/bionode/bionode-ncbi#usage) of each module, but you can also check a concatenated version of all the documentation at http://doc.bionode.io.
 You can also have an overview of all the issues at [waffle.io](http://waffle.io/bionode/bionode). Theres plenty of opportunity for collaboration, and contributors will be coauthors on a paper, so check the ["How to contribute"](/guide/11-how-to-contribute.html) section.  
 
 ## Get involved
-You can also check our [Twitter account](twitter.com/bionode) for updates or come ask questions in the [Gitter chat room](http://gitter.im/bionode/bionode). You can also just open an [issue on GitHub](http://github.com/bionode/bionode/issues) with your question or idea. Have a look around and come chat to us, there's plenty of ways to get involved, from either the biology side or the computational side.
+You can also check our [Twitter account](http://twitter.com/bionode) for updates or come ask questions in the [Gitter chat room](http://gitter.im/bionode/bionode). You can also just open an [issue on GitHub](http://github.com/bionode/bionode/issues) with your question or idea. Have a look around and come chat to us, there's plenty of ways to get involved, from either the biology side or the computational side.
 
 ## Collaborations
 ### Dat
-Bionode collaborates with [Dat](http://dat-data.com), a "Git for data". The Dat developers have contributed and helped bionode and both projects follow similar standards. Bionode influenced some of the development decisions in Dat, towards the goal of making Dat the definitive format to share scientific data.
+Bionode collaborates with [Dat](http://dat-data.com), a "Git for data". The Dat developers have contributed and helped bionode, and both projects follow similar standards. Bionode influenced some of the development decisions in Dat, towards the goal of making Dat the definitive format to share scientific data.
 
 ![sanger dat/bionode talk](/static/img/sanger.jpg)
 
@@ -51,10 +51,10 @@ Since both projects are JavaScript and have the word "bio" in the name, people a
 ![venn](/static/img/venn.png)
 
 ## Node.js? Really??
-JavaScript is currently the only real "write once, run anywhere" language, and most cases it's fast enough. Nowadays you can even play very [demanding 3D apps](https://blog.mozilla.org/blog/2014/03/12/mozilla-and-epic-preview-unreal-engine-4-running-in-firefox/) compiled to JavaScript in you're browser. If you want, you can run [C code in Node.js for speed](http://www.benfarrell.com/2013/01/03/c-and-node-js-an-unholy-combination-but-oh-so-right/).
+JavaScript is currently the only real "write once, run anywhere" language, and for most cases it's fast enough. Nowadays you can even run very [demanding 3D apps](https://blog.mozilla.org/blog/2014/03/12/mozilla-and-epic-preview-unreal-engine-4-running-in-firefox/) compiled to JavaScript in you're browser. If you want, you can also run [C code in Node.js for speed](http://www.benfarrell.com/2013/01/03/c-and-node-js-an-unholy-combination-but-oh-so-right/).
 The asynchronous and evented nature of Node.js also makes if very interesting for big data pipelines.
 
-Plus it's the fastest growing community!
+Plus it's the fastest growing open source community!
 
 ![modules](/static/img/modules.png)
 
