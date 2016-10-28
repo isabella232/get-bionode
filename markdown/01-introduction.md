@@ -68,3 +68,5 @@ Sure, it still doesn't have has many bio tools as Python or statistics as R, but
 * [Biohackathon in Nagasaki, Japan](https://www.youtube.com/watch?v=9MoI1IFRdvc&index=15&list=PL0uaKHgcG00bSajcVd8qIQ__Mss8xkPoH)
 * [Biocoders meetup in Cambridge, UK](http://www.meetup.com/biocoders/events/225520856/)
 * MozFest 2015 London, UK
+* [Google Campus 2016 London, UK](https://blog.repositive.io/bionode_hackday_overview/)
+* MozFest 2016 London, UK
