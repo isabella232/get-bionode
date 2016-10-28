@@ -1,30 +1,57 @@
 # Getting started
 ## Online (this workshop)
-If you're planning to try Bionode out using [try.bionode.io](http://try.bionode.io), you're already all set!
+You can test drive Bionode online without installing anything by going to [try.bionode.io](http://try.bionode.io).
 
 ## Install it on your machine (alternative)
-Otherwise, you want to run it locally on you machine, the fist step is to get Node.js. There are several ways to do it, but we recommend the following:
+If you want to run it locally on your machine, the fist step is to get Node.JS. There are several ways to do it, but we recommend the following:
+
+### Mac OS
+Install Homebrew by copy pasting the following command in your terminal.
 
 ```bash
-# OS X (using Homebrew)
-brew install n # Get a Node.js version manager, very useful.
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-# Ubuntu
+Then install a Node.JS version manager
+```bash
+brew install n
+```
+
+Then install the latest stable version of Node or a specific one.
+
+```bash
+n stable
+# Or
+n 7.0.0
+```
+
+### Ubuntu
+Run the following commands
+```bash
+# Install the Node Package Manager
 sudo apt-get install npm
+# Install a Node version manager
 npm install n -g
+# Install Node
+n stable
+## Or for a specific version
+n 7.0.0
+```
+### Windows
+Go to http://nodejs.org, and follow instructions.
 
-# Windows
-## Go to http://nodejs.org, and follow instructions
-
-# Install version 0.10.40 of Node.js and load it in your $PATH
-n 0.10.40
-
-# Get Bionode and friends
-## Installs bionode 'globally', i.e., as a Command Line
+## Install Bionode and other useful tools
+Bionode provides a meta-module named ```bionode``` that can install all the other modules as dependencies. If you only need a specific module, you just install that one, e.g., ```bionode-ncbi```.
+### Installs bionode 'globally', i.e., as a Command Line tool
+```bash
 npm install bionode -g
-## You can also install a specific module instead of all
+```
+### You can also install a specific module instead of all
+```bash
 npm install bionode-ncbi -g
-## Install some other useful tools
+```
+### Install some other useful tools
+```bash
 npm install dat json -g
 ```
 
@@ -46,16 +73,19 @@ That command queries the NCBI database and retrieves URLs of the genome assembly
 Now the same could be done using the JavaScript API, but first you need to create a folder for your project and then for each module your are going to `require` in your code, you need to do `npm install module_name` (without the `-g` flag) to install a copy of that module locally in your project folder. You only use the `-g` flag when you want to install a module as a command line tool.
 
 ```bash
+#!/bin/bash
 npm install bionode-ncbi
 ```
 
 ```javascript
+#!/usr/bin/env node
 var bio = require('bionode')
 ```
 
- The you can generally use bionode modules in 3 different ways:
+## Bionode code patterns
+You can generally use bionode modules in 3 different ways:
 
-#### The Callback pattern
+### The Callback pattern
 A [callback](https://docs.nodejitsu.com/articles/getting-started/control-flow/what-are-callbacks) simply means, you ask for something and once you get all of it you process it
 
 ```javascript
@@ -66,7 +96,7 @@ bio.ncbi.urls('assembly', 'Acromyrmex', function(urls) {
 })
 ```
 
-#### The Event pattern
+### The Event pattern
 Callbacks are fine for most cases, but if you're getting too much data your code will run out memory and crash. A solutions is to use [Events](https://nodesource.com/blog/understanding-the-nodejs-event-loop) to do something as you get one object or chunks of data.
 
 ```javascript
@@ -76,7 +106,7 @@ function printGenomeURL(url) {
 }
 ```
 
-#### The Pipe pattern
+### The Pipe pattern
 [Node.js Streams](https://github.com/substack/stream-handbook) are based on Events and allow you to get rid of a lot of boilerplate code by chaining functions together.
 
 ```javascript
@@ -109,7 +139,7 @@ for id in esearch_record['IdList']:
     print entry.text
 ```
 
-### More Node.js tips
+## More Node.js tips
 
 If you git clone a Node.js folder, to install it's dependencies you just cd into it and type `npm install`.
 If you want to install that module that you just git cloned as a command tool, you cd into the folder and do `npm link` (useful for development).
