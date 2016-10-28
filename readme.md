@@ -1,4 +1,4 @@
-# try-dat
+# try.bionode.io
 
 ## A command line tutorial to learn `bionode`
 
