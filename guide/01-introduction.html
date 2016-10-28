@@ -30,30 +30,48 @@ Since he had a <a href="https://science.mozilla.org/blog/intro-to-bruno">backgro
 <p>Bionode has a small community, with a few active developers that <a href="http://github.com/bionode">contributed new modules</a>.</p>
 <p><img src="/static/img/community.png" alt="team">
 <em>Community spread across academic institutions, open source collaborations, and startups.</em></p>
+<p>We also organise <a href="https://blog.repositive.io/bionode_hackday_overview/">hackathons</a> and workshops that produce some <a href="http://github.com/bionode-hack">prototypes of new tools</a>.</p>
+<p><img src="/static/img/hackathon.jpeg" alt="hackathon">
+<em><a href="https://blog.repositive.io/bionode_hackday_overview/">Bionode Hackday</a> at <a href="https://www.campus.co/london/en">Google Campus London</a> gives rise to five new prototype tools for fetching and processing biological data</em></p>
 <h2 id="what-kind-of-tools-are-you-developing-">What kind of tools are you developing?</h2>
-<p>The overall theme is bioinformatics, besides that, any tools is welcome. The idea is that if someone is writing JavaScript for biology, or agrees with some of our <a href="http://github.com/bionode/bionode-template#principles">principles</a>, then that code is welcome in Bionode.
-Currently there&#39;s modules to retrieve biological data from web resources (e.g., <a href="http://github.com/bionode/bionode-ncbi">bionode-ncbi</a>), deal with specific bioinformatic data formats (e.g., <a href="http://github.com/bionode/bionode-fasta">bionode-fasta</a>), and handle sequences (<a href="http://github.com/bionode/bionode-seq">bionode-seq</a>). There&#39;s also wrappers around existing bioinformatics tools (e.g., <a href="http://github.com/bionode/bionode-sam">bionode-sam</a>), which obviously only run server side (since those tools are not written in JavaScript) to make it easier to build <a href="https://github.com/bionode/bionode-example-dat-gasket#bionode-example-with-dat-and-gasket">pipelines in Node.js</a>. However there is some discussion if <a href="http://github.com/bionode/bionode/issues/29">wrappers are in the scope</a> of Bionode.
-Once we have more basic tools, there might be a move towards genetic algorithms and machine learning.</p>
+<p>The overall theme is bioinformatics. Besides that, any tools is welcome. The idea is that if someone is writing JavaScript for biology, and agrees with some of our <a href="http://github.com/bionode/bionode-template#principles">guidelines</a>, then that code is very welcome in Bionode.
+Currently there&#39;s modules to:</p>
+<ul>
+<li>Retrieve biological data from web resources (e.g., <a href="http://github.com/bionode/bionode-ncbi">bionode-ncbi</a>)</li>
+<li>Deal with specific bioinformatic data formats (e.g., <a href="http://github.com/bionode/bionode-fasta">bionode-fasta</a>)</li>
+<li>Handle sequences (e.g., <a href="http://github.com/bionode/bionode-seq">bionode-seq</a>).</li>
+<li>There&#39;s also wrappers around existing bioinformatics tools (e.g., <a href="http://github.com/bionode/bionode-sam">bionode-sam</a>), which obviously only run server side (since those tools are not written in JavaScript) to make it easier to build <a href="https://github.com/bionode/bionode-example-dat-gasket#bionode-example-with-dat-and-gasket">pipelines in Node.js</a>. However there is some discussion if <a href="http://github.com/bionode/bionode/issues/29">wrappers are in the scope</a> of Bionode or should we rely on project like the <a href="http://commonwl.org">Common Workflow Language (CWL)</a>.</li>
+<li>A workflow engine (<a href="http://github.com/bionode/bionode-watermill">bionode-watermill</a>) that allows to describe in a clean way complex data processing pipelines with very intricate dependencies and parallelism. It can also be used in fields outside of biology.</li>
+<li>Once we have more basic tools, there might be a move towards genetic algorithms and machine learning.</li>
+</ul>
 <h2 id="current-state">Current state</h2>
-<p>You can see a global list of modules on <a href="https://github.com/bionode/bionode#list-of-modules">GitHub</a>. Many are still in early development, so check the READMEs and the status badges. On each README you have a <a href="https://github.com/bionode/bionode-ncbi#usage">link to the documentation</a> of each module, but you can also check a concatenated version of all the documentation at <a href="http://doc.bionode.io">http://doc.bionode.io</a>.
+<p>You can see a global list of modules on <a href="https://github.com/bionode/bionode#list-of-modules">GitHub</a>. Many are still in early development, so check the READMEs and the status badges. Some modules have been requested by the community but not yet developed. On each README you have a <a href="https://github.com/bionode/bionode-ncbi#usage">link to the documentation</a> of each module, but you can also check a concatenated version of all the documentation at <a href="http://doc.bionode.io">http://doc.bionode.io</a>.
 You can also have an overview of all the issues at <a href="http://waffle.io/bionode/bionode">waffle.io</a>. Theres plenty of opportunity for collaboration, and contributors will be coauthors on a paper, so check the <a href="/guide/11-how-to-contribute.html">&quot;How to contribute&quot;</a> section.  </p>
+<p>Code produced during events like hackathons is stored under the <a href="https://github.com/bionode-hack">bionode-hack</a> organisation on GitHub, and are a good way to kickstart a bigger contribution to the project.</p>
 <h2 id="get-involved">Get involved</h2>
 <p>You can also check our <a href="http://twitter.com/bionode">Twitter account</a> for updates or come ask questions in the <a href="http://gitter.im/bionode/bionode">Gitter chat room</a>. You can also just open an <a href="http://github.com/bionode/bionode/issues">issue on GitHub</a> with your question or idea. Have a look around and come chat to us, there&#39;s plenty of ways to get involved, from either the biology side or the computational side.</p>
 <h2 id="collaborations">Collaborations</h2>
 <h3 id="dat">Dat</h3>
-<p>Bionode collaborates with <a href="http://dat-data.com">Dat</a>, a &quot;Git for data&quot;. The Dat developers have contributed and helped bionode, and both projects follow similar standards. Bionode influenced some of the development decisions in Dat, towards the goal of making Dat the definitive format to share scientific data.</p>
+<p>Bionode collaborates with <a href="http://dat-data.com">Dat</a>, a &quot;Git for data&quot;. Dat goals are version control and p2p distribution of big data. The Dat developers have contributed and helped bionode, and both projects follow similar standards. For example, Bionode influenced some of the development decisions in Dat, towards the goal of making Dat the definitive format to share scientific data. Dat influenced Bionode code practices and standards. We also mentored a <a href="">Google Summer of Code student together</a>.</p>
 <p><img src="/static/img/sanger.jpg" alt="sanger dat/bionode talk"></p>
+<h3 id="open-bioinformatics-foundation">Open Bioinformatics Foundation</h3>
+<p>We had in 2016 a Google Summer of Code student, <a href="https://twitter.com/thejmazz">Julian Mazzitelli</a>, with the <a href="https://summerofcode.withgoogle.com/organizations/5693436329984000/">OBF</a>. He worked full-time for three months and <a href="https://github.com/bionode/bionode-watermill">developed a workflow engine</a> with the aim of making it easier to write modular and scalable bioinformatics pipelines. However, his tool is applicable in any data processing workflow in other fields.</p>
+<p><img src="/static/img/julian-mazittelli.jpg" alt="julian"></p>
 <h3 id="biojs">BioJS</h3>
 <p><a href="http://biojs.net">BioJS</a> is a set of libraries for vizualising biological data on the web. It also provides as <a href="http://biojs.io">registry of biological tools</a> on the web. Bionode and BioJS collaborate to improve compatibility and integration between both projects, for example, by using the <a href="http://github.com/bionode/bionode/issues/9">same package manager (npm)</a>. We also submit <a href="http://biojs.net/gsoc/2015/">Google Summer of Code projects</a> together.</p>
-<p>Since both projects are JavaScript and have the word &quot;bio&quot; in the name, people ask frequently what is the difference between them? There are several, but they can be summarized by the fact that Bionode is focusing and &quot;data processing/pipelines&quot; (more backend, even when in a browser) while BioJS e focusing on &quot;visualization&quot;. This means that even if the language is the same (which is great for integration) the architecture of each project is very different. See the Venn diagram below with some of the technologies used by each project:</p>
-<p><img src="/static/img/venn.png" alt="venn"></p>
+<p>Since both projects are JavaScript and have the word &quot;bio&quot; in the name, people ask frequently what is the difference between them? There are several, but they can be summarized by the fact that Bionode is focusing and &quot;data processing/pipelines&quot; (more backend, even when in a browser) while BioJS is focusing on &quot;visualization&quot;. This means that even if the language is the same (which is great for integration) the architecture of each project is very different.</p>
+<p><img src="/static/img/venn.png" alt="venn">
+<em>Diagram below with some of the technologies used by each project.</em></p>
 <h2 id="node-js-really-">Node.js? Really??</h2>
 <p>JavaScript is currently the only real &quot;write once, run anywhere&quot; language, and for most cases it&#39;s fast enough. Nowadays you can even run very <a href="https://blog.mozilla.org/blog/2014/03/12/mozilla-and-epic-preview-unreal-engine-4-running-in-firefox/">demanding 3D apps</a> compiled to JavaScript in you&#39;re browser. If you want, you can also run <a href="http://www.benfarrell.com/2013/01/03/c-and-node-js-an-unholy-combination-but-oh-so-right/">C code in Node.js for speed</a>.
 The asynchronous and evented nature of Node.js also makes if very interesting for big data pipelines.</p>
-<p>Plus it&#39;s the fastest growing open source community!</p>
-<p><img src="/static/img/modules.png" alt="modules"></p>
+<p><img src="/static/img/c-in-js.png" alt="c in node">
+<em>There&#39;s a lot of potential for integration between C++ and JavaScript, has shown in the nbind project. We hope in the future to take more advantage of this in Bionode for intensive algorithms.</em></p>
+<p><img src="/static/img/modules.png" alt="modules">
+<em>Node.JS is the fastest growing open source community!</em></p>
 <p>Sure, it still doesn&#39;t have has many bio tools as Python or statistics as R, but that&#39;s an opportunity to contribute and get involved in some of the other cool things the Node.js community is making.</p>
 <h2 id="talks-and-workshops">Talks and workshops</h2>
+<p>Here&#39;s a list of some of the events we&#39;ve been:</p>
 <ul>
 <li><a href="http://try-dat.com">Dat workshop with Bionode chapter (8) at MozFest 2014 London, UK</a></li>
 <li><a href="https://www.youtube.com/watch?v=Ef17lkx7s0U">Dat and Bionode at Sanger, UK</a></li>
