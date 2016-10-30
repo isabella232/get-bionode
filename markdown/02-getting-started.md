@@ -1,6 +1,15 @@
 # Getting started
-## Online (this workshop)
-You can test drive Bionode online without installing anything by going to [try.bionode.io](http://try.bionode.io).
+## Prerequisites
+We assume that you have some familiarity with a Command Line Interface (e.g., BASH).
+If that is not the case, we recommend doing the [command_line_bootcamp](http://rik.smith-unna.com/command_line_bootcamp).
+At a minimum, you need to know how to use the commands ```ls```, ```cd```, ```mkdir``` and ```touch```.
+
+Knowledge of JavaScript and Node.JS is **not** required but can be very helpful for some sections. A good resource is [NodeSchool](http://nodeschool.io), and we recommend the sections ```javascripting```, ```learnyounode```, ```how-to-npm```, ```stream-adventure```, ```async-you```,  ```browserify-adventure```, and ```unctional-javascript-workshop``` (in this order). If you want a good and free JavaScript beginners book, check out [JavaScript for Cats](http://jsforcats.com).
+
+If you get interested in Bioinformatics and want to learn more, there are plenty of resources and [MOOCs](https://en.wikipedia.org/wiki/Massive_open_online_course) out there. However, [Bioinformatics Data Skills](http://shop.oreilly.com/product/0636920030157.do) is a good beginners book.
+
+## Do it online (this workshop)
+You can test drive Bionode online without installing anything using the [try.bionode.io](http://try.bionode.io) website.
 
 ## Install it on your machine (alternative)
 If you want to run it locally on your machine, the fist step is to get Node.JS. There are several ways to do it, but we recommend the following:
@@ -52,7 +61,7 @@ npm install bionode-ncbi -g
 ```
 ### Install some other useful tools
 ```bash
-npm install dat json -g
+npm install json -g
 ```
 
 ## Available modules

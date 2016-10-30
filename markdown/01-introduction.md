@@ -69,7 +69,7 @@ Since both projects are JavaScript and have the word "bio" in the name, people a
 *Diagram below with some of the technologies used by each project.*
 
 ## Node.js? Really??
-JavaScript is currently the only real "write once, run anywhere" language, and for most cases it's fast enough. Nowadays you can even run very [demanding 3D apps](https://blog.mozilla.org/blog/2014/03/12/mozilla-and-epic-preview-unreal-engine-4-running-in-firefox/) compiled to JavaScript in you're browser. If you want, you can also run [C code in Node.js for speed](http://www.benfarrell.com/2013/01/03/c-and-node-js-an-unholy-combination-but-oh-so-right/).
+JavaScript is currently the only real "write once, run anywhere" language, and for most cases it's fast enough. Nowadays you can even run very [demanding 3D apps](https://blog.mozilla.org/blog/2014/03/12/mozilla-and-epic-preview-unreal-engine-4-running-in-firefox/) compiled to JavaScript in your browser. If you want, you can also run [C code in Node.js for speed](http://www.benfarrell.com/2013/01/03/c-and-node-js-an-unholy-combination-but-oh-so-right/).
 The asynchronous and evented nature of Node.js also makes if very interesting for big data pipelines.
 
 ![c in node](/static/img/c-in-js.png)
