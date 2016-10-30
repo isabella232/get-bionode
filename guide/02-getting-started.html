@@ -13,6 +13,12 @@
       <section class="content">
         <p><a href="index.html">table of contents</a></p>
       <h1 id="getting-started">Getting started</h1>
+<h2 id="tl-dr">TL; DR</h2>
+<p>Try this on the terminal on the right</p>
+<pre><code class="lang-bash">bionode ncbi search nucleotide cancer | head -n 1 | json
+
+bionode ncbi search nucleotide cancer | head -n 1 | json uid | bionode ncbi fetch nuccore - | json
+</code></pre>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>We assume that you have some familiarity with a Command Line Interface (e.g., BASH).
 If that is not the case, we recommend doing the <a href="http://rik.smith-unna.com/command_line_bootcamp">command_line_bootcamp</a>.
@@ -49,21 +55,21 @@ n 7.0.0
 <h3 id="windows">Windows</h3>
 <p>Go to <a href="http://nodejs.org">http://nodejs.org</a>, and follow instructions.</p>
 <h2 id="install-bionode-and-other-useful-tools">Install Bionode and other useful tools</h2>
-<p>Bionode provides a meta-module named <code>bionode</code> that can install all the other modules as dependencies. If you only need a specific module, you just install that one, e.g., <code>bionode-ncbi</code>.</p>
-<h3 id="installs-bionode-globally-i-e-as-a-command-line-tool">Installs bionode &#39;globally&#39;, i.e., as a Command Line tool</h3>
-<pre><code class="lang-bash">npm install bionode -g
+<p>Bionode provides a meta-module named <code>bionode</code> that can install all the other modules as dependencies. If you only need a specific module, you just install that one, e.g., <code>bionode-ncbi</code>. Tip: In this tutorial, in the interest of  speed, saving computational resources, and avoid issues with some versions of Node.JS, we use <code>--production</code> to skip installing development dependencies.</p>
+<h3 id="installs-bionode-globally-i-e-as-a-command-line-tool-using-g-">Installs bionode &#39;globally&#39;, i.e., as a Command Line tool (using <code>-g</code>).</h3>
+<pre><code class="lang-bash">npm install bionode -g --production
 </code></pre>
 <h3 id="you-can-also-install-a-specific-module-instead-of-all">You can also install a specific module instead of all</h3>
-<pre><code class="lang-bash">npm install bionode-ncbi -g
+<pre><code class="lang-bash">npm install bionode-ncbi -g --production
 </code></pre>
 <h3 id="install-some-other-useful-tools">Install some other useful tools</h3>
-<pre><code class="lang-bash">npm install json -g
+<pre><code class="lang-bash">npm install json tool-stream -g --production
 </code></pre>
 <h2 id="available-modules">Available modules</h2>
 <p>After you&#39;re setup you can have a quick look at the available <a href="https://github.com/bionode/bionode#list-of-modules">modules on GitHub</a> and jump to the section about that module, or keep reading</p>
 <h2 id="how-things-work-in-general">How things work in general</h2>
 <h3 id="command-line-interface">Command Line Interface</h3>
-<p>Check the documentation and status of each module, but in general you can use the command line interface like this:</p>
+<p>Check the documentation and status for each module in the README.md file on their GitHub page (e.g., [bionode-ncbi] (<a href="https://github.com/bionode/bionode-ncbi">https://github.com/bionode/bionode-ncbi</a>)), but in general you can use the command line interface like this:</p>
 <pre><code class="lang-bash">bionode ncbi urls assembly Acromyrmex | json -ga genomic.fna
 </code></pre>
 <p>That command queries the NCBI database and retrieves URLs of the genome assembly for the ant species Acromyrmex. This will return a JSON object that is then piped to the <code>json</code> command so that we can retrieve only the property <code>genomic.fna</code> (the url of the file with DNA sequences in fna/fasta format) and filter out the other properties.</p>
@@ -119,8 +125,8 @@ for id in esearch_record[&#39;IdList&#39;]:
     print entry.text
 </code></pre>
 <h2 id="more-node-js-tips">More Node.js tips</h2>
-<p>If you git clone a Node.js folder, to install it&#39;s dependencies you just cd into it and type <code>npm install</code>.
-If you want to install that module that you just git cloned as a command tool, you cd into the folder and do <code>npm link</code> (useful for development).</p>
+<p>If you git clone a Node.js folder, to install its dependencies you can just cd into it and type <code>npm install</code>.
+If you want to install that module that you just git cloned as a command line tool, you cd into the folder and do <code>npm link</code> (useful for development).</p>
 
         <div class="navlinks">
           <a class="nextp button" href="03-bionode-fasta.html">OK, next! &raquo;</a>
