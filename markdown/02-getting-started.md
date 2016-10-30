@@ -1,4 +1,14 @@
 # Getting started
+
+## TL; DR
+Try this on the terminal on the right
+
+```bash
+bionode ncbi search nucleotide cancer | head -n 1 | json
+
+bionode ncbi search nucleotide cancer | head -n 1 | json uid | bionode ncbi fetch nuccore - | json
+```
+
 ## Prerequisites
 We assume that you have some familiarity with a Command Line Interface (e.g., BASH).
 If that is not the case, we recommend doing the [command_line_bootcamp](http://rik.smith-unna.com/command_line_bootcamp).
@@ -50,18 +60,19 @@ n 7.0.0
 Go to http://nodejs.org, and follow instructions.
 
 ## Install Bionode and other useful tools
-Bionode provides a meta-module named ```bionode``` that can install all the other modules as dependencies. If you only need a specific module, you just install that one, e.g., ```bionode-ncbi```.
-### Installs bionode 'globally', i.e., as a Command Line tool
+Bionode provides a meta-module named ```bionode``` that can install all the other modules as dependencies. If you only need a specific module, you just install that one, e.g., ```bionode-ncbi```. Tip: In this tutorial, in the interest of  speed, saving computational resources, and avoid issues with some versions of Node.JS, we use ```--production``` to skip installing development dependencies.
+
+### Installs bionode 'globally', i.e., as a Command Line tool (using ```-g```).
 ```bash
-npm install bionode -g
+npm install bionode -g --production
 ```
 ### You can also install a specific module instead of all
 ```bash
-npm install bionode-ncbi -g
+npm install bionode-ncbi -g --production
 ```
 ### Install some other useful tools
 ```bash
-npm install json -g
+npm install json tool-stream -g --production
 ```
 
 ## Available modules
@@ -70,7 +81,7 @@ After you're setup you can have a quick look at the available [modules on GitHub
 ## How things work in general
 
 ### Command Line Interface
-Check the documentation and status of each module, but in general you can use the command line interface like this:
+Check the documentation and status for each module in the README.md file on their GitHub page (e.g., [bionode-ncbi] (https://github.com/bionode/bionode-ncbi)), but in general you can use the command line interface like this:
 
 ```bash
 bionode ncbi urls assembly Acromyrmex | json -ga genomic.fna
@@ -150,5 +161,5 @@ for id in esearch_record['IdList']:
 
 ## More Node.js tips
 
-If you git clone a Node.js folder, to install it's dependencies you just cd into it and type `npm install`.
-If you want to install that module that you just git cloned as a command tool, you cd into the folder and do `npm link` (useful for development).
+If you git clone a Node.js folder, to install its dependencies you can just cd into it and type `npm install`.
+If you want to install that module that you just git cloned as a command line tool, you cd into the folder and do `npm link` (useful for development).

@@ -1,4 +1,5 @@
 # How to write Node.js Streams (WIP section)
+Update (#MozFest): Check the [mississippi module](https://github.com/maxogden/mississippi).
 
 ```javascript
 var through = require('through2')

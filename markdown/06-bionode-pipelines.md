@@ -1,4 +1,5 @@
 # Pipelines (WIP section)
+Update (#MozFest): Try our new [bionode-watermill](https://github.com/bionode/bionode-watermill) and [Julian's beginners tutorial](https://thejmazz.gitbooks.io/bionode-watermill/content/BeginnerWalkthrough.html)
 
 ```javascript
 ncbi
